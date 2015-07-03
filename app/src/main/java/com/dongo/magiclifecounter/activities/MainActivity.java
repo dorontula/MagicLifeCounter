@@ -31,6 +31,58 @@ public class MainActivity extends FragmentActivity {
         setSettingVisibility(View.INVISIBLE);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(getIntent() == null || getIntent().getExtras() == null)
+            return;
+
+        // was state saved?
+        if(getIntent().getExtras().containsKey("playerCount")){
+            playerCount = getIntent().getIntExtra("playerCount", 0);
+
+            switch(playerCount){
+                case 4:
+                    ((TextView) findViewById(R.id.p4).findViewById(R.id.healthText)).setText(getIntent().getExtras().get("p4_hp").toString());
+                    ((TextView) findViewById(R.id.p4).findViewById(R.id.poisonText)).setText(getIntent().getExtras().get("p4_poison").toString());
+                case 3:
+                    ((TextView) findViewById(R.id.p3).findViewById(R.id.healthText)).setText(getIntent().getExtras().get("p3_hp").toString());
+                    ((TextView) findViewById(R.id.p3).findViewById(R.id.poisonText)).setText(getIntent().getExtras().get("p3_poison").toString());
+                case 2:
+                    ((TextView) findViewById(R.id.p2).findViewById(R.id.healthText)).setText(getIntent().getExtras().get("p2_hp").toString());
+                    ((TextView) findViewById(R.id.p2).findViewById(R.id.poisonText)).setText(getIntent().getExtras().get("p2_poison").toString());
+                    ((TextView) findViewById(R.id.p1).findViewById(R.id.healthText)).setText(getIntent().getExtras().get("p1_hp").toString());
+                    ((TextView) findViewById(R.id.p1).findViewById(R.id.poisonText)).setText(getIntent().getExtras().get("p1_poison").toString());
+                default:
+                    break;
+            }
+        }
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        getIntent().putExtra("playerCount", playerCount);
+
+        switch(playerCount){
+            case 4:
+                getIntent().putExtra("p4_hp", ((TextView) findViewById(R.id.p4).findViewById(R.id.healthText)).getText());
+                getIntent().putExtra("p4_poison", ((TextView) findViewById(R.id.p4).findViewById(R.id.poisonText)).getText());
+            case 3:
+                getIntent().putExtra("p3_hp", ((TextView) findViewById(R.id.p3).findViewById(R.id.healthText)).getText());
+                getIntent().putExtra("p3_poison", ((TextView) findViewById(R.id.p3).findViewById(R.id.poisonText)).getText());
+            case 2:
+            default:
+                getIntent().putExtra("p2_hp", ((TextView) findViewById(R.id.p2).findViewById(R.id.healthText)).getText());
+                getIntent().putExtra("p2_poison", ((TextView) findViewById(R.id.p2).findViewById(R.id.poisonText)).getText());
+                getIntent().putExtra("p1_hp", ((TextView) findViewById(R.id.p1).findViewById(R.id.healthText)).getText());
+                getIntent().putExtra("p1_poison", ((TextView) findViewById(R.id.p1).findViewById(R.id.poisonText)).getText());
+                break;
+        }
+
+    }
+
     /**
      *
      * @param view
@@ -166,24 +218,31 @@ public class MainActivity extends FragmentActivity {
      * @param view
      */
     private void reset(int value, View view){
-        ((TextView) findViewById(R.id.p1).findViewById(R.id.healthText)).setText(String.valueOf(value));
-        ((TextView) findViewById(R.id.p1).findViewById(R.id.poisonText)).setText(String.valueOf(0));
-        ((TextView) findViewById(R.id.p2).findViewById(R.id.healthText)).setText(String.valueOf(value));
-        ((TextView) findViewById(R.id.p2).findViewById(R.id.poisonText)).setText(String.valueOf(0));
 
-        if(playerCount >= 3) {
-            ((TextView) findViewById(R.id.p3).findViewById(R.id.healthText)).setText(String.valueOf(value));
-            ((TextView) findViewById(R.id.p3).findViewById(R.id.poisonText)).setText(String.valueOf(0));
-
-            if (playerCount == 3) { //set player 4 life to 0 if player count is 3
-                ((TextView) findViewById(R.id.p4).findViewById(R.id.healthText)).setText(String.valueOf(0));
+        // reset all fields to the given reset value
+        switch(playerCount){
+            case 4:
+                ((TextView) findViewById(R.id.p4).findViewById(R.id.healthText)).setText(String.valueOf(value));
                 ((TextView) findViewById(R.id.p4).findViewById(R.id.poisonText)).setText(String.valueOf(0));
-            }
+            case 3:
+                ((TextView) findViewById(R.id.p3).findViewById(R.id.healthText)).setText(String.valueOf(value));
+                ((TextView) findViewById(R.id.p3).findViewById(R.id.poisonText)).setText(String.valueOf(0));
+            case 2:
+            default:
+                ((TextView) findViewById(R.id.p1).findViewById(R.id.healthText)).setText(String.valueOf(value));
+                ((TextView) findViewById(R.id.p1).findViewById(R.id.poisonText)).setText(String.valueOf(0));
+                ((TextView) findViewById(R.id.p2).findViewById(R.id.healthText)).setText(String.valueOf(value));
+                ((TextView) findViewById(R.id.p2).findViewById(R.id.poisonText)).setText(String.valueOf(0));
+                break;
         }
 
-        if(playerCount >= 4) {
-            ((TextView) findViewById(R.id.p4).findViewById(R.id.healthText)).setText(String.valueOf(value));
-            ((TextView) findViewById(R.id.p4).findViewById(R.id.poisonText)).setText(String.valueOf(0));
+        // set unused fields to zero (e.g. 3 player setting still displays 4 player tiles)
+        switch (playerCount){
+            case 3: //set player 4 life to 0 if player count is 3
+                ((TextView) findViewById(R.id.p4).findViewById(R.id.healthText)).setText(String.valueOf(0));
+                ((TextView) findViewById(R.id.p4).findViewById(R.id.poisonText)).setText(String.valueOf(0));
+            default:
+                break;
         }
     }
 
