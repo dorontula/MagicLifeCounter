@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/playerTileLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="#263238">
+
+    <LinearLayout
+        android:id="@+id/playerTileLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_remove_circle_outline_white_48dp"
+            android:id="@+id/minusOne"
+            android:onClick="onClickPlayerTile"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="20"
+            android:textSize="72dp"
+            android:id="@+id/healthText"
+            android:inputType="numberSigned|numberDecimal"
+            android:onClick="onClickPlayerTile"
+            style="@style/HealthText"
+            android:layout_gravity="center_vertical"
+            android:minEms="1"
+            android:maxEms="2"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_add_circle_outline_white_48dp"
+            android:id="@+id/plusOne"
+            android:onClick="onClickPlayerTile"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center_vertical"/>
+
+        //POISON VIEW
+        <LinearLayout
+            android:id="@+id/poisonLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_add_circle_outline_white_36dp"
+                android:id="@+id/plusOnePoison"
+                android:onClick="onClickPlayerTile"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:textSize="36dp"
+                android:id="@+id/poisonText"
+                android:inputType="numberSigned|numberDecimal"
+                android:onClick="onClickPlayerTile"
+                style="@style/PoisonText"
+                android:minWidth="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_remove_circle_outline_white_36dp"
+                android:id="@+id/minusOnePoison"
+                android:onClick="onClickPlayerTile"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout> //Poison view end
+
+    </LinearLayout>
+
+</RelativeLayout>

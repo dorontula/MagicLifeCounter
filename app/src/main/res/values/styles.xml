@@ -1,0 +1,52 @@
+<resources>
+
+    <style name="my.Material.Light" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+    <style name="HealthText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <style name="PoisonText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">7dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+
+    <dimen name="fab_elevation">8dp</dimen>
+    <dimen name="fab_press_translation_z">9dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_size_small">40dp</dimen>
+    <dimen name="fab_icon_size">24dp</dimen>
+
+
+    <color name="fab_color">#546e7a</color>
+    <color name="fab_color_muted">#78909c</color>
+    <color name="fab_color_checked">#b0bec5</color>
+    <color name="fab_color_checked_muted">#eceff1</color>
+
+    <color name="fab_sub_buttons">#546e7a</color>
+
+    <color name="p1_tile_backgrnd">#0d47a1</color>
+    <color name="p2_tile_backgrnd">#004d40</color>
+    <color name="p3_tile_backgrnd">#4e342e</color>
+    <color name="p4_tile_backgrnd">#37474f</color>
+
+</resources>
