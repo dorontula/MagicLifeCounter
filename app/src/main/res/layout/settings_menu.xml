@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     android:layout_marginBottom="10dp">
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_reset40"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -24,9 +24,9 @@
             android:src="@mipmap/ic_replay_40_white_36dp"
             android:layout_gravity="center"
             android:duplicateParentState="true"/>
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_reset30"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -43,9 +43,9 @@
             android:src="@mipmap/ic_replay_30_white_36dp"
             android:layout_gravity="center"
             android:duplicateParentState="true"/>
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_reset20"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -62,9 +62,9 @@
             android:src="@mipmap/ic_replay_white_36dp"
             android:layout_gravity="center"
             android:duplicateParentState="true"/>
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_settings"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -82,9 +82,9 @@
             android:layout_gravity="center"
             android:duplicateParentState="true"
             />
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_p2"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -101,9 +101,9 @@
             android:layout_gravity="center"
             android:duplicateParentState="true"
             android:onClick="onClickPlayer2"/>
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_p3"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -120,9 +120,9 @@
             android:layout_gravity="center"
             android:duplicateParentState="true"
             android:onClick="onClickPlayer3"/>
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
-    <com.dongo.magiclifecounter.activities.FloatingActionButton
+    <com.dongo.magiclifecounter.layouts.FloatingActionButton
         android:id="@+id/fab_p4"
         android:layout_width="@dimen/fab_size_small"
         android:layout_height="@dimen/fab_size_small"
@@ -138,6 +138,6 @@
             android:layout_gravity="center"
             android:duplicateParentState="true"
             android:onClick="onClickPlayer4"/>
-    </com.dongo.magiclifecounter.activities.FloatingActionButton>
+    </com.dongo.magiclifecounter.layouts.FloatingActionButton>
 
 </LinearLayout>

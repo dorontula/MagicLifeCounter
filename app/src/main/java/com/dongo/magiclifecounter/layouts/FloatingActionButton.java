@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dongo.magiclifecounter.activities;
+package com.dongo.magiclifecounter.layouts;
 
 import android.content.Context;
 import android.graphics.Outline;
@@ -73,7 +73,7 @@ public class FloatingActionButton extends FrameLayout implements Checkable {
     }
 
     public FloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr,
-            int defStyleRes) {
+                                int defStyleRes) {
         super(context, attrs, defStyleAttr);
 
         setClickable(true);

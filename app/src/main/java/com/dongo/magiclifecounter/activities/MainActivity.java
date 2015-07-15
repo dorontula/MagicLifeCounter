@@ -5,11 +5,15 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewParent;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dongo.magiclifecounter.R;
+import com.dongo.magiclifecounter.layouts.FloatingActionButton;
+import com.dongo.magiclifecounter.utils.AnimUtils;
 
 /**
  * Created by dongo on 20.06.2015.
@@ -251,6 +255,9 @@ public class MainActivity extends FragmentActivity {
      * @param visibility
      */
     private void setSettingVisibility(int visibility){
+
+        doSettingMenuAnimation(visibility);
+
         findViewById(R.id.fab_reset20).setVisibility(visibility);
         findViewById(R.id.fab_reset30).setVisibility(visibility);
         findViewById(R.id.fab_reset40).setVisibility(visibility);
@@ -274,22 +281,68 @@ public class MainActivity extends FragmentActivity {
     private void setPlayerTileBackgroundColor(int playerCnt){
 
         switch(playerCnt){
-            case 2:
-                findViewById(R.id.p1).setBackgroundColor(getResources().getColor(R.color.p1_tile_backgrnd));
-                findViewById(R.id.p2).setBackgroundColor(getResources().getColor(R.color.p2_tile_backgrnd));
-                break;
-            case 3:
             case 4:
-                findViewById(R.id.p1).setBackgroundColor(getResources().getColor(R.color.p1_tile_backgrnd));
-                findViewById(R.id.p2).setBackgroundColor(getResources().getColor(R.color.p2_tile_backgrnd));
-                findViewById(R.id.p3).setBackgroundColor(getResources().getColor(R.color.p3_tile_backgrnd));
                 findViewById(R.id.p4).setBackgroundColor(getResources().getColor(R.color.p4_tile_backgrnd));
-                break;
+            case 3:
+                findViewById(R.id.p3).setBackgroundColor(getResources().getColor(R.color.p3_tile_backgrnd));
+            case 2:
             default:
+                findViewById(R.id.p2).setBackgroundColor(getResources().getColor(R.color.p2_tile_backgrnd));
+                findViewById(R.id.p1).setBackgroundColor(getResources().getColor(R.color.p1_tile_backgrnd));
                 break;
         }
 
     }
+
+    /**
+     *
+     * @param visibility
+     */
+    private void doSettingMenuAnimation(int visibility){
+
+        //expand settings menu
+        if(visibility == View.VISIBLE) {
+
+            AnimationSet as = AnimUtils.moveHorizontallyFromRelPosition(1, 0, 200);
+            findViewById(R.id.fab_reset20).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(2, 0, 200);
+            findViewById(R.id.fab_reset30).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(3, 0, 200);
+            findViewById(R.id.fab_reset40).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(-1, 0, 200);
+            findViewById(R.id.fab_p2).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(-2, 0, 200);
+            findViewById(R.id.fab_p3).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(-3, 0, 200);
+            findViewById(R.id.fab_p4).startAnimation(as);
+
+        }else{ // collapse settings
+            AnimationSet as = AnimUtils.moveHorizontallyFromRelPosition(0, 1, 100);
+            findViewById(R.id.fab_reset20).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(0, 2, 100);
+            findViewById(R.id.fab_reset30).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(0, 3, 100);
+            findViewById(R.id.fab_reset40).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(0, -1, 100);
+            findViewById(R.id.fab_p2).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(0, -2, 100);
+            findViewById(R.id.fab_p3).startAnimation(as);
+
+            as = AnimUtils.moveHorizontallyFromRelPosition(0, -3, 100);
+            findViewById(R.id.fab_p4).startAnimation(as);
+
+        }
+    }
+
 }
 
 
